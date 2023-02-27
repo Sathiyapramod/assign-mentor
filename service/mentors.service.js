@@ -18,7 +18,8 @@ export async function displayStudentsbyMentor(id) {
   return await client
     .db("mentorstudent")
     .collection("mentors")
-    .find({ id: id }, { _id: 0, id: 1, name: 1, topic: 0, students: 1 }).toArray();
+    .find({ id: id }, { _id: 0, id: 1, name: 1, topic: 0, students: 1 })
+    .toArray();
 }
 
 export async function displayMentor() {
@@ -26,5 +27,6 @@ export async function displayMentor() {
     .db("mentorstudent")
     .collection("mentors")
     .find({})
+    .project({ _id: 0 })
     .toArray();
 }

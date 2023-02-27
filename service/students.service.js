@@ -18,6 +18,6 @@ export async function displaystudent() {
   return await client
     .db("mentorstudent")
     .collection("students")
-    .find({})
+    .find({}).project({ _id: 0 })
     .toArray();
 }
